@@ -2,12 +2,13 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart';
+import 'package:ansicolor/ansicolor.dart';
 
 Future<void> main() async {
   print('Welcome to Translation App!');
-
+  var pen = AnsiPen()..green(bold: true);
   while (true) {
-    print('Enter a command (translate, detect, or end):');
+    print(pen('Enter a command (translate, detect, or end):'));
     String? command = stdin.readLineSync();
 
     if (command == 'end') {
@@ -90,7 +91,6 @@ Future<void> translateWord(String? word, String? lang) async {
       var jsonResponse = response.data;
       var translation =
           jsonResponse['data']['translations'][0]['translatedText'];
-      ;
       print('Translation: $translation');
     } else {
       print('Request failed with status: ${response.statusCode}');
