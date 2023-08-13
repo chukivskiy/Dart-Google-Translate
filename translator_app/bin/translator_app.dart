@@ -31,7 +31,7 @@ Future<void> main() async {
 }
 
 Future<void> detectLanguage(String? word) async {
-  var apiKey = "bbcf49acc7mshad0de06bc7abb64p15540cjsn82bfc169aa9a";
+  var apiKey = "c9db842bbfmsh045408514bbe19fp1873d7jsn0821679dbe8e";
   var url = Uri.parse(
       "https://google-translate1.p.rapidapi.com/language/translate/v2/detect");
 
@@ -39,7 +39,7 @@ Future<void> detectLanguage(String? word) async {
     "Content-Type": "application/x-www-form-urlencoded",
     "Accept-Encoding": "application/gzip",
     "X-RapidAPI-Host": "google-translate1.p.rapidapi.com",
-    "X-RapidAPI-Key": "bbcf49acc7mshad0de06bc7abb64p15540cjsn82bfc169aa9a",
+    "X-RapidAPI-Key": "c9db842bbfmsh045408514bbe19fp1873d7jsn0821679dbe8e",
   };
 
   String text = word!;
@@ -65,7 +65,7 @@ Future<void> detectLanguage(String? word) async {
 }
 
 Future<void> translateWord(String? word, String? lang) async {
-  var apiKey = "bbcf49acc7mshad0de06bc7abb64p15540cjsn82bfc169aa9a";
+  var apiKey = "c9db842bbfmsh045408514bbe19fp1873d7jsn0821679dbe8e";
   var url = Uri.parse(
       "https://google-translate1.p.rapidapi.com/language/translate/v2");
 
@@ -73,7 +73,7 @@ Future<void> translateWord(String? word, String? lang) async {
     "Content-Type": "application/x-www-form-urlencoded",
     "Accept-Encoding": "application/gzip",
     "X-RapidAPI-Host": "google-translate1.p.rapidapi.com",
-    "X-RapidAPI-Key": "bbcf49acc7mshad0de06bc7abb64p15540cjsn82bfc169aa9a",
+    "X-RapidAPI-Key": "c9db842bbfmsh045408514bbe19fp1873d7jsn0821679dbe8e",
   };
 
   String text = word!;
@@ -99,3 +99,4 @@ Future<void> translateWord(String? word, String? lang) async {
     print('An error occurred: $e');
   }
 }
+
