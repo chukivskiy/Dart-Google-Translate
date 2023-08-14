@@ -4,11 +4,12 @@ import 'package:http/http.dart' as http;
 import 'package:dio/dio.dart';
 import 'package:ansicolor/ansicolor.dart';
 
+var pen = AnsiPen()..green(bold: true);
+var pen1 = AnsiPen()..red(bold: true);
 Future<void> main() async {
   print('Welcome to Translation App!');
-  var pen = AnsiPen()..green(bold: true);
   while (true) {
-    print(pen('Enter a command (translate, detect, or end):'));
+    print('Enter a command (translate, detect, or end):');
     String? command = stdin.readLineSync();
 
     if (command == 'end') {
@@ -25,7 +26,7 @@ Future<void> main() async {
       String? text = stdin.readLineSync();
       await detectLanguage(text);
     } else {
-      print('Invalid command. Please enter translate, detect, or end.');
+      print(pen1('Invalid command. Please enter translate, detect, or end.'));
     }
   }
 }
@@ -55,9 +56,9 @@ Future<void> detectLanguage(String? word) async {
     if (response.statusCode == 200) {
       var jsonResponse = response.data;
       var language = jsonResponse['data']['detections'][0][0]['language'];
-      print('Detected language: $language');
+      print(pen('Detected language: $language'));
     } else {
-      print('Request failed with status: ${response.statusCode}');
+      print(pen1('Request failed with status: ${response.statusCode}'));
     }
   } catch (e) {
     print('An error occurred: $e');
@@ -91,12 +92,11 @@ Future<void> translateWord(String? word, String? lang) async {
       var jsonResponse = response.data;
       var translation =
           jsonResponse['data']['translations'][0]['translatedText'];
-      print('Translation: $translation');
+      print(pen('Translation: $translation'));
     } else {
-      print('Request failed with status: ${response.statusCode}');
+      print(pen1('Request failed with status: ${response.statusCode}'));
     }
   } catch (e) {
-    print('An error occurred: $e');
+    print(pen1('An error occurred: $e'));
   }
 }
-
